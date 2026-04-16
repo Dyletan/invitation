@@ -785,7 +785,7 @@
         localStorage.setItem('rsvp_responses', JSON.stringify(filtered));
         localStorage.setItem('rsvp_last_submission', JSON.stringify(formState));
 
-        const SHEET_URL = '%%GOOGLE_SCRIPT_URL%%';
+        const SHEET_URL = 'https://script.google.com/macros/s/AKfycbyltPm_Xqwqa_p-Abu3c59pwfzHPfXRKMRsQaIePJqJBqUrWe0CiyadSFRD89Vdl2lAAg/exec';
 
         if (SHEET_URL.includes('%%')) {
             console.log('RSVP saved locally:', rows);
