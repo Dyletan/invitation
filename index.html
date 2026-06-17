@@ -179,25 +179,6 @@
         .radio-option label { display: block; text-align: center; padding: 16px 12px; background: var(--white); border: 1.5px solid var(--border); border-radius: 12px; color: var(--text-body); font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 400; cursor: pointer; transition: all 0.3s ease; }
         .radio-option input:checked + label { background: var(--accent-pale); border-color: var(--accent); color: var(--accent); font-weight: 500; }
 
-        .checkbox-group { display: flex; flex-direction: column; gap: 10px; }
-        .guest-block { background: var(--white); border: 1.5px solid var(--border); border-radius: 12px; overflow: hidden; transition: border-color 0.3s ease; }
-        .guest-block.active { border-color: var(--accent); }
-        .guest-block-toggle { display: flex; align-items: center; gap: 14px; padding: 16px 18px; cursor: pointer; -webkit-user-select: none; user-select: none; }
-        .custom-checkbox { width: 24px; height: 24px; border: 2px solid var(--border); border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.3s ease; }
-        .guest-block.active .custom-checkbox { background: var(--accent); border-color: var(--accent); }
-        .custom-checkbox svg { width: 14px; height: 14px; fill: none; stroke: #fff; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; opacity: 0; transition: opacity 0.2s ease; }
-        .guest-block.active .custom-checkbox svg { opacity: 1; }
-        .checkbox-text { font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 400; color: var(--text-body); }
-        .guest-block-details { display: none; padding: 0 18px 16px; }
-        .guest-block.active .guest-block-details { display: block; }
-        .guest-name-input { width: 100%; padding: 14px 16px; background: var(--accent-bg); border: 1px solid var(--border); border-radius: 10px; color: var(--text-dark); font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 400; outline: none; margin-top: 4px; -webkit-appearance: none; }
-        .guest-name-input:focus { border-color: var(--accent); }
-        .guest-name-input::placeholder { color: #C5BBAF; }
-        .child-entry { display: flex; gap: 8px; align-items: center; margin-top: 8px; flex-wrap: wrap; }
-        .child-entry .guest-name-input { flex: 1; margin-top: 0; }
-        .child-entry .error-msg { margin-top: 2px; }
-        .add-child-btn { display: inline-flex; align-items: center; gap: 6px; margin-top: 12px; padding: 10px 16px; background: none; border: 1px dashed var(--accent-light); border-radius: 8px; color: var(--accent); font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 400; cursor: pointer; }
-        .remove-child-btn { width: 32px; height: 32px; border-radius: 50%; border: none; background: var(--accent-pale); color: var(--accent); font-size: 20px; line-height: 1; cursor: pointer; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
 
         .submit-btn { width: 100%; padding: 18px; margin-top: 28px; background: var(--accent); border: none; border-radius: 30px; color: #fff; font-family: 'Montserrat', sans-serif; font-size: 15px; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; cursor: pointer; transition: all 0.3s ease; }
         .submit-btn:active { transform: scale(0.98); }
@@ -370,37 +351,6 @@
                     </div>
                 </div>
 
-                <div class="form-group" id="extras-group" style="display:none">
-                    <label class="form-label" data-i18n="extras_label">Кто придёт с вами?</label>
-                    <div class="checkbox-group">
-                        <div class="guest-block" id="partner-block">
-                            <div class="guest-block-toggle" onclick="toggleGuest('partner-block')">
-                                <div class="custom-checkbox">
-                                    <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-                                </div>
-                                <span class="checkbox-text" data-i18n="partner_text">Вторая половинка</span>
-                            </div>
-                            <div class="guest-block-details">
-                                <input class="guest-name-input" type="text" data-i18n-placeholder="partner_ph" data-role="partner">
-                            </div>
-                        </div>
-                        <div class="guest-block" id="kids-block">
-                            <div class="guest-block-toggle" onclick="toggleGuest('kids-block')">
-                                <div class="custom-checkbox">
-                                    <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-                                </div>
-                                <span class="checkbox-text" data-i18n="kids_text">Дети</span>
-                            </div>
-                            <div class="guest-block-details" id="kids-details">
-                                <div class="child-entry">
-                                    <input class="guest-name-input" type="text" data-i18n-placeholder="child_ph" data-role="child">
-                                </div>
-                                <button type="button" class="add-child-btn" onclick="addChild()" data-i18n="add_child">+ Добавить ребёнка</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
                 <button class="submit-btn" type="submit" id="submit-btn" data-i18n="submit">Отправить</button>
             </form>
         </div>
@@ -451,12 +401,6 @@
             att_label: 'Будете ли вы присутствовать?',
             att_yes: 'Да, буду',
             att_no: 'Не смогу',
-            extras_label: 'Кто придёт с вами?',
-            partner_text: 'Вторая половинка',
-            partner_ph: 'Имя и фамилия',
-            kids_text: 'Дети',
-            child_ph: 'Имя ребёнка',
-            add_child: '+ Добавить ребёнка',
             submit: 'Отправить',
             submitting: 'Отправляем...',
             change_answer: 'Изменить ответ',
@@ -464,8 +408,6 @@
             toast_err: 'Ошибка. Попробуйте ещё раз',
             err_name: 'Пожалуйста, введите ваше имя',
             err_att: 'Пожалуйста, выберите один из вариантов',
-            err_partner: 'Пожалуйста, введите имя',
-            err_child: 'Пожалуйста, введите имя ребёнка',
             footer: 'С любовью, Эльдар & Амина'
         },
         kz: {
@@ -496,12 +438,6 @@
             att_label: 'Тойға қатысасыз ба?',
             att_yes: 'Иә, келемін',
             att_no: 'Келе алмаймын',
-            extras_label: 'Сізбен бірге кім келеді?',
-            partner_text: 'Жұбайыңыз',
-            partner_ph: 'Тегі мен аты',
-            kids_text: 'Балалар',
-            child_ph: 'Баланың аты',
-            add_child: '+ Бала қосу',
             submit: 'Жіберу',
             submitting: 'Жіберілуде...',
             change_answer: 'Жауапты өзгерту',
@@ -509,8 +445,6 @@
             toast_err: 'Қате. Қайталап көріңіз',
             err_name: 'Атыңызды жазыңыз',
             err_att: 'Нұсқалардың бірін таңдаңыз',
-            err_partner: 'Атын жазыңыз',
-            err_child: 'Баланың атын жазыңыз',
             footer: 'Сүйіспеншілікпен, Эльдар & Амина'
         }
     };
@@ -594,25 +528,10 @@
     /* ── Attendance toggle ── */
     document.querySelectorAll('input[name="attendance"]').forEach(r => {
         r.addEventListener('change', () => {
-            document.getElementById('extras-group').style.display =
-                document.getElementById('att-yes').checked ? 'block' : 'none';
             const radioErr = document.querySelector('.radio-group + .error-msg');
             if (radioErr) radioErr.remove();
         });
     });
-
-    /* ── Guest block toggle ── */
-    function toggleGuest(id) { document.getElementById(id).classList.toggle('active'); }
-
-    /* ── Add child ── */
-    function addChild() {
-        const details = document.getElementById('kids-details');
-        const entry = document.createElement('div');
-        entry.className = 'child-entry';
-        entry.innerHTML = `<input class="guest-name-input" type="text" placeholder="${t('child_ph')}" data-i18n-placeholder="child_ph" data-role="child">`
-            + '<button type="button" class="remove-child-btn" onclick="this.parentElement.remove()">&times;</button>';
-        details.insertBefore(entry, details.querySelector('.add-child-btn'));
-    }
 
     /* ── Toast ── */
     function showToast(msg) {
@@ -660,19 +579,6 @@
             valid = false;
         }
 
-        const pb = document.getElementById('partner-block');
-        if (pb.classList.contains('active')) {
-            const pi = pb.querySelector('.guest-name-input');
-            if (!pi.value.trim()) { showError(pi, t('err_partner')); firstBad.push(pi); valid = false; }
-        }
-
-        const kb = document.getElementById('kids-block');
-        if (kb.classList.contains('active')) {
-            kb.querySelectorAll('.guest-name-input').forEach(input => {
-                if (!input.value.trim()) { showError(input, t('err_child')); firstBad.push(input); valid = false; }
-            });
-        }
-
         if (firstBad.length) firstBad[0].scrollIntoView({ behavior: 'smooth', block: 'center' });
         return valid;
     }
@@ -709,23 +615,6 @@
             radio.dispatchEvent(new Event('change', { bubbles: true }));
         }
 
-        if (data.partnerName !== undefined) {
-            const pb = document.getElementById('partner-block');
-            pb.classList.add('active');
-            pb.querySelector('.guest-name-input').value = data.partnerName;
-        }
-
-        if (data.children && data.children.length > 0) {
-            const kb = document.getElementById('kids-block');
-            kb.classList.add('active');
-            kb.querySelector('.guest-name-input').value = data.children[0];
-            for (let i = 1; i < data.children.length; i++) {
-                addChild();
-                const inputs = kb.querySelectorAll('.guest-name-input');
-                inputs[inputs.length - 1].value = data.children[i];
-            }
-        }
-
         btn.classList.add('sent');
         btn.disabled = false;
         btn.dataset.mode = 'edit';
@@ -758,43 +647,25 @@
         const groupId = getGroupId();
         const timestamp = new Date().toISOString();
 
-        const rows = [];
-        rows.push({ groupId, name: mainName, role: 'guest', attendance, timestamp });
+        const record = { groupId, name: mainName, attendance, timestamp };
         const formState = { mainName, attendance };
-
-        const partnerBlock = document.getElementById('partner-block');
-        if (partnerBlock.classList.contains('active')) {
-            const pName = partnerBlock.querySelector('.guest-name-input').value.trim();
-            rows.push({ groupId, name: pName, role: 'partner', attendance: 'yes', timestamp });
-            formState.partnerName = pName;
-        }
-
-        const kidsBlock = document.getElementById('kids-block');
-        if (kidsBlock.classList.contains('active')) {
-            formState.children = [];
-            kidsBlock.querySelectorAll('.guest-name-input').forEach(input => {
-                const cName = input.value.trim();
-                rows.push({ groupId, name: cName, role: 'child', attendance: 'yes', timestamp });
-                formState.children.push(cName);
-            });
-        }
 
         const saved = JSON.parse(localStorage.getItem('rsvp_responses') || '[]');
         const filtered = saved.filter(r => r.groupId !== groupId);
-        filtered.push(...rows);
+        filtered.push(record);
         localStorage.setItem('rsvp_responses', JSON.stringify(filtered));
         localStorage.setItem('rsvp_last_submission', JSON.stringify(formState));
 
         const SHEET_URL = 'https://script.google.com/macros/s/AKfycbyltPm_Xqwqa_p-Abu3c59pwfzHPfXRKMRsQaIePJqJBqUrWe0CiyadSFRD89Vdl2lAAg/exec';
 
         if (SHEET_URL.includes('%%')) {
-            console.log('RSVP saved locally:', rows);
+            console.log('RSVP saved locally:', record);
             onSuccess();
         } else {
             try {
                 await fetch(SHEET_URL, {
                     method: 'POST',
-                    body: JSON.stringify({ groupId, rows })
+                    body: JSON.stringify(record)
                 });
                 onSuccess();
             } catch (err) {
